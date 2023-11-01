@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Main {
+public class ArrayListDemo {
     public static void main(String[] args) {
         /*
         ArrayList<String> isimlerListesi = new ArrayList<>();
