@@ -30,6 +30,7 @@ public class ListOfMaps {
         OgrenciListesi.add(Ogrenci2);
         OgrenciListesi.add(Ogrenci3);
         System.out.println(OgrenciListesi);
+        System.out.println(OgrenciListesi.get(0));
 
     }
 }
