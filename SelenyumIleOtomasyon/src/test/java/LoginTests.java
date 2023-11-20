@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginTests {
 
@@ -21,15 +25,18 @@ public class LoginTests {
     @Test
     void hepsiburadaLoginTesti() throws InterruptedException
     {
-        WebDriver driver = new ChromeDriver();
         driver.get("https://www.hepsiburada.com");
 
+        //!!! Hata
+        WebDriver wait = new WebDriverWait(driver, Duration.ofSeconds(20L));
+
+        wait.until(ExpectedCondition.presenceOfElement.Located(By.id("myAccount")));
         driver.findElement(By.id("myAccount")).click();
-        Thread.sleep(500);
+        wait.until(ExpectedCondition.presenceOfElement.Located(By.id("login")));
         driver.findElement(By.id("login")).click();
-        Thread.sleep(500);
+        wait.until(ExpectedCondition.presenceOfElement.Located(By.id("txtUserName")));
         driver.findElement(By.id("txtUserName")).sendKeys("seleniumOtomasyonu@gmail.com");
-        Thread.sleep(500);
+        wait.until(ExpectedCondition.presenceOfElement.Located(By.id("btnLogin")));
         driver.findElement(By.id("btnLogin")).click();
     }
 
